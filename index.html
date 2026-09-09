@@ -1,53 +1,239 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>OCC4M Supplementary Videos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>OCC4M — Supplementary Videos</title>
+
   <style>
     body {
-      max-width: 900px;
-      margin: 40px auto;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+      color: #222;
       line-height: 1.5;
+      background: #fff;
     }
-    video {
+
+    h1 {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      margin-top: 50px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px;
+      margin-top: 25px;
+    }
+
+    .video-card {
       width: 100%;
-      margin-bottom: 10px;
     }
-    .example {
-      margin-bottom: 40px;
+
+    .video-card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .video-card p {
+      margin: 8px 0 0;
+      color: #555;
+      font-size: 14px;
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #000;
+      border-radius: 4px;
+    }
+
+    .full-width {
+      margin-top: 30px;
+    }
+
+    .full-width video {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .full-width h3,
+    .full-width p {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+      margin-top: 70px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        padding: 25px 16px 60px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<h1>OCC4M: Supplementary Videos</h1>
+  <h1>OCC4M: Object-Centric 4D Memory for Spatiotemporal Reasoning in Long-Horizon Manipulation</h1>
 
-<p>
-Anonymous supplementary material for the submitted paper.
-</p>
-
-<div class="example">
-  <h2>Real-world compositional manipulation</h2>
-  <video controls muted>
-    <source src="videos/realworld_task.mp4" type="video/mp4">
-  </video>
-  <p>
-    OCC4M performs shuffled-containment recall followed by historical-location recall.
+  <p class="subtitle">
+    Anonymous supplementary videos accompanying the paper.
   </p>
-</div>
 
-<div class="example">
-  <h2>Closed-loop retargeting under perturbation</h2>
-  <video controls muted>
-    <source src="videos/perturbation.mp4" type="video/mp4">
-  </video>
-  <p>
-    The selected target is displaced during execution; OCC4M preserves its identity
-    and updates its location online without re-querying the VLM.
-  </p>
-</div>
+
+  <!-- ========================= -->
+  <!-- Simulation experiments -->
+  <!-- ========================= -->
+
+  <h2>Simulation Experiments</h2>
+
+  <div class="grid">
+
+    <div class="video-card">
+      <h3>T1 — Spatial Persistence</h3>
+      <video controls preload="metadata" playsinline>
+        <source src="videos/T1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>
+        Place the red cube at the vanished green cube's remembered location.
+      </p>
+    </div>
+
+    <div class="video-card">
+      <h3>T1c — Viewpoint Transfer</h3>
+      <video controls preload="metadata" playsinline>
+        <source src="videos/T1c.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>
+        After the target disappears and the base moves, recover its remembered
+        location from the new viewpoint.
+      </p>
+    </div>
+
+    <div class="video-card">
+      <h3>T2 — Temporal Identity</h3>
+      <video controls preload="metadata" playsinline>
+        <source src="videos/T2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>
+        Place the blue and red cubes at the first and second marker locations.
+      </p>
+    </div>
+
+    <div class="video-card">
+      <h3>T3 — Event History</h3>
+      <video controls preload="metadata" playsinline>
+        <source src="videos/T3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>
+        Pick the second object that moved and place it at the first mover's
+        pre-motion location.
+      </p>
+    </div>
+
+    <div class="video-card">
+      <h3>T4 — Relational Persistence</h3>
+      <video controls preload="metadata" playsinline>
+        <source src="videos/T4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>
+        Identify and pick the cover containing the red cube after shuffling.
+      </p>
+    </div>
+
+    <div class="video-card">
+      <h3>T5 — Cross-View Association</h3>
+      <video controls preload="metadata" playsinline>
+        <source src="videos/T5.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>
+        Retrieve a remembered target location after navigating between workspaces.
+      </p>
+    </div>
+
+    <div class="video-card">
+      <h3>T6 — Multi-Instance Identity</h3>
+      <video controls preload="metadata" playsinline>
+        <source src="videos/T6.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>
+        After recoloring, sort the cubes according to their original identities.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- ========================= -->
+  <!-- Real-world experiments -->
+  <!-- ========================= -->
+
+  <h2>Real-World Experiments</h2>
+
+  <div class="video-card full-width">
+    <h3>Compositional Manipulation</h3>
+    <video controls preload="metadata" playsinline>
+      <source src="videos/real_compositional.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p>
+      Real-world Franka evaluation combining shuffled-containment recall and
+      historical-location recall.
+    </p>
+  </div>
+
+  <div class="video-card full-width">
+    <h3>Closed-Loop Grounding Under Perturbation</h3>
+    <video controls preload="metadata" playsinline>
+      <source src="videos/real_shuffle_perturbation.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p>
+      The selected target is displaced during execution. OCC4M preserves its
+      identity and updates its location online without re-querying the VLM.
+    </p>
+  </div>
+
+
+  <footer>
+    Anonymous supplementary material for peer review.
+  </footer>
 
 </body>
 </html>
